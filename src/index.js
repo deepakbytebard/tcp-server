@@ -1,10 +1,8 @@
 const net = require("net");
-
-const handleClientConnection = (socket) =>{
-    socket.on("data",(param)=>console.log(param,"hello"))
-}
+const { handleClientConnection }= require("./event-handler/passive-socket");
+const { ADDRESS, PORT_NUMBER, BACKLOG } = require("./constants")
 
 const server = net.createServer();
-server.on("connection", handleClientConnection)
+server.on("connection", handleClientConnection);
 
-server.listen(3000, "127.0.0.1",5, ()=>console.log("started"))
+server.listen(PORT_NUMBER, ADDRESS, BACKLOG, ()=>console.log("server started"));
