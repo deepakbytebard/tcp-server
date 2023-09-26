@@ -1,13 +1,14 @@
+const { getClientKey } = require("../../utils")
 function getHandleClientData(socket){
     function handleClientData(data){
-        console.log(data,socket.remoteAddress, "data coming from here")
+        console.log(`${getClientKey(socket)} sends ${data}`)
     }
     return handleClientData
 }
 
 function getHandleClientDisconnect(socket){
     function handleClientDisconnect(){
-        console.log(socket.remoteAddress, "has left the connection")
+        console.log(`${getClientKey(socket)} disconnected.`)
     }
     return handleClientDisconnect
 }
