@@ -1,11 +1,10 @@
 const { getClientKey } = require("../../utils")
-const { deleteClient } = require("../utils")
-const { message, forwardMessage, broadcastMessage, broadcastMessageToGroup } = require("../utils/messageHandler")
+const { deleteClient } = require("../../client")
+const { message, forwardMessage, broadcastMessage, broadcastMessageToGroup } = require("../../message")
 
 // handle active client message or data 
 function getHandleClientData(socket){
     function handleClientData(data){
-        console.log(data,"this is data")
         message(socket, data)
     }
     return handleClientData
